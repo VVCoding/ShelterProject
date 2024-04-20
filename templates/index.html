@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vedant's Shelter Project</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css" /> 
+
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    {% include "navbar.html"%}
+    
+    <div class="container">
+        <div class="calendar">
+          <header>
+            <pre class="left">◀</pre>
+            
+            <div class="header-display">
+              <p class="display">""</p>
+            </div>
+      
+            <pre class="right">▶</pre>
+
+          </header>
+      
+          <div class="week">
+            <div>Su</div>
+            <div>Mo</div>
+            <div>Tu</div>
+            <div>We</div>
+            <div>Th</div>
+            <div>Fr</div>
+            <div>Sa</div>
+          </div>
+          <div class="days"></div>
+        </div>
+        <div class="display-selected">
+          <p class="selected"></p>
+        </div>
+    </div>
+
+    <script>
+      let display = document.querySelector(".display");
+let days = document.querySelector(".days");
+let previous = document.querySelector(".left");
+let next = document.querySelector(".right");
+let selected = document.querySelector(".selected");
+
+let date = new Date();
+
+let year = date.getFullYear();
+let month = date.getMonth();
+
+function displayCalendar() {
+  const firstDay = new Date(year, month, 1);
+
+  const lastDay = new Date(year, month + 1, 0);
+
+  const firstDayIndex = firstDay.getDay(); //4
+
+  const numberOfDays = lastDay.getDate(); //31
+
+  let formattedDate = date.toLocaleString("en-US", {
+    month: "long",
+    year: "numeric"
+  });
+
+  display.innerHTML = `${formattedDate}`;
+
+  for (let x = 1; x <= firstDayIndex; x++) {
+    const div = document.createElement("div");
+    div.innerHTML += "";
+
+    days.appendChild(div);
+  }
+
+  for (let i = 1; i <= numberOfDays; i++) {
+    let div = document.createElement("div");
+    let currentDate = new Date(year, month, i);
+
+    div.dataset.date = currentDate.toDateString();
+
+    div.innerHTML += i;
+    days.appendChild(div);
+    if (
+      currentDate.getFullYear() === new Date().getFullYear() &&
+      currentDate.getMonth() === new Date().getMonth() &&
+      currentDate.getDate() === new Date().getDate()
+    ) {
+      div.classList.add("current-date");
+    }
+  }
+}
+
+// Call the function to display the calendar
+displayCalendar();
+
+previous.addEventListener("click", () => {
+  days.innerHTML = "";
+  selected.innerHTML = "";
+
+  if (month < 0) {
+    month = 11;
+    year = year - 1;
+  }
+
+  month = month - 1;
+
+  date.setMonth(month);
+
+  displayCalendar();
+  displaySelected();
+});
+
+next.addEventListener("click", () => {
+  days.innerHTML = "";
+  selected.innerHTML = "";
+
+  if (month > 11) {
+    month = 0;
+    year = year + 1;
+  }
+
+  month = month + 1;
+  date.setMonth(month);
+
+  displayCalendar();
+  displaySelected();
+});
+
+function displaySelected() {
+  const dayElements = document.querySelectorAll(".days div");
+  dayElements.forEach((day) => {
+    day.addEventListener("click", (e) => {
+      const selectedDate = e.target.dataset.date;
+      const slash = "/date/"
+      selected.innerHTML = `Selected Date : ${selectedDate}`;
+      document.getElementById("dateChoice").value = selectedDate;
+      const result = slash.concat(selectedDate)
+      document.getElementById("myForm").action = result;
+    });
+  });
+} 
+displaySelected();
+
+    </script>
+
+    <div> 
+      <form id = "myForm" action = "displaySelected()">
+      <label for="date">Choose a date:</label><br>
+        <select name="date" id="date_select" onchange = "displaySelected()"> 
+        </select>
+        <input id = "dateChoice" type="submit" value="Submit">
+      </form>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          {% include "line_graph.svg" %}
+        </div>
+        <div class="col">
+          {% include "line1_graph.svg" %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          {% include "line2_graph.svg" %}
+        </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+  </body>
+  {% include "footer.html" %}
+</html>
