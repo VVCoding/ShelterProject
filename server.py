@@ -51,18 +51,29 @@ def about():
 
 @app.route("/date/<currDate>")
 def date(currDate):
+    f = open("data/ShelterData.json", "r")
+    data = json.load(f)
+    f.close()
+    
+    runbool = False
+    
+    dates = list(data.keys())[1:]
+    if dateToDate(currDate) in dates:
+        runbool = True
+    else:
+        runbool = False
 
-    return render_template("date.html", date=currDate, numDate = dateToDate(currDate))
+    return render_template("date.html", date=currDate, numDate = dateToDate(currDate),runbool = runbool)
 
 def dateToDate(date):
     date = date.replace("%20","")
     datestr = ""
-    month_dict = {"January":1, "February":2, "March":3, "Apr":4, "May":5, "June":6, "July":7, "August":8, "September":9, "October":10, "November":11, "December":12}
+    month_dict = {"January":"01", "February":"02", "March":"03", "Apr":"04", "May":"05", "June":"06", "July":"07", "August":"08", "September":"09", "October":10, "November":11, "December":12}
     for month in month_dict.keys():
         if month in date:
-            datestr = datestr + str(month_dict[month])
+            datestr = datestr + month_dict[month]
     
-    days_list = ["1 ","2 ","3 ","4 ","5 ","6 ","7 ","8 ","9 ","10 ","11 ","12 ","13 ","14 ","15 ","16 ","17 ","18 ","19 ","20 ","21 ","22 ","23 ","24 ","25 ","26 ","27 ","28 ","29 ","30 ","31 "]
+    days_list = ["01 ","02 ","03 ","04 ","05 ","06 ","07 ","08 ","09 ","10 ","11 ","12 ","13 ","14 ","15 ","16 ","17 ","18 ","19 ","20 ","21 ","22 ","23 ","24 ","25 ","26 ","27 ","28 ","29 ","30 ","31 "]
     days_list.reverse()
     count = 0
     for day in days_list:

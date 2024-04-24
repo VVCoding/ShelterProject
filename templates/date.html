@@ -15,6 +15,7 @@
     
     {% include "navbar.html"%}
 
+    {% if runbool == True %}
     <h1>Data for {{date}} and {{numDate}}</h1>
 
     <div>
@@ -28,6 +29,11 @@
     <div>
         {% include "pie_chart2.svg" %}
     </div>
+
+    {% else %}
+      <h1>Unfortunately, the available data only extends till 04/01/2024. Please go back to the Home Page and select a new date!</h1>
+    {% endif %}
+    
   
 
 
