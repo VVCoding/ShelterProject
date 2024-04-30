@@ -46,7 +46,10 @@ def home():
     return render_template("index.html", years = years, all_dates = all_dates)
 
 @app.route('/about')
-def about():    
+def about(): 
+    f = open("data/ShelterData.json", "r")
+    data = json.load(f)
+    f.close()   
     return render_template("about.html")
 
 @app.route("/date/<currDate>")
@@ -54,6 +57,7 @@ def date(currDate):
     f = open("data/ShelterData.json", "r")
     data = json.load(f)
     f.close()
+    
     
     runbool = False
     
@@ -63,12 +67,12 @@ def date(currDate):
     else:
         runbool = False
 
-    return render_template("date.html", date=currDate, numDate = dateToDate(currDate),runbool = runbool)
+    return render_template("date.html", date=currDate, numDate = dateToDate(currDate),runbool = runbool, totalAdultsInShelter = int(data[dateToDate(currDate)][0]), totalChildrenInShelter = int(data[dateToDate(currDate)][1]), totalIndividualsInShelter = int(data[dateToDate(currDate)][2]), singleAdultMenInShelter = int(data[dateToDate(currDate)][3]), singleAdultWomenInShelter = int(data[dateToDate(currDate)][4]), totalSingleAdultsInShelter = int(data[dateToDate(currDate)][5]), familiesWithChildrenInShelter = int(data[dateToDate(currDate)][6]), adultsInFamiliesWithChildrenInShelter = int(data[dateToDate(currDate)][7]), childrenInFamiliesWithChildrenInShelter = int(data[dateToDate(currDate)][8]), totalIndividualsInFamiliesWithChildrenInShelter=int(data[dateToDate(currDate)][9]))
 
 def dateToDate(date):
     date = date.replace("%20","")
     datestr = ""
-    month_dict = {"January":"01", "February":"02", "March":"03", "Apr":"04", "May":"05", "June":"06", "July":"07", "August":"08", "September":"09", "October":10, "November":11, "December":12}
+    month_dict = {"Jan":"01", "Feb":"02", "Mar":"03", "Apr":"04", "May":"05", "Jun":"06", "Jul":"07", "Aug":"08", "Sep":"09", "Oct":"10", "Nov":"11", "Dec":"12"}
     for month in month_dict.keys():
         if month in date:
             datestr = datestr + month_dict[month]
@@ -87,9 +91,25 @@ def dateToDate(date):
             datestr = datestr + "/"+year
     
     return datestr
-    
-    
 
 app.run(debug=True, port =  5500)
 
-# Add a grid for svgs in bootstrap
+
+# Use MatPlot Lib for the rest of the graphs
+# Round Decimals
+# Add CSS for Navbar and anything else
+# Make Video
+# DONE
+
+"""Total Adults in Shelter",
+        "Total Children in Shelter",
+        "Total Individuals in Shelter",
+        "Single Adult Men in Shelter",
+        "Single Adult Women in Shelter",
+        "Total Single Adults in Shelter",
+        "Families with Children in Shelter",
+        "Adults in Families with Children in Shelter",
+        "Children in Families with Children in Shelter",
+        "Total Individuals in Families with Children in Shelter",
+        "Adult Families in Shelter",
+        "Individuals in Adult Families in Shelter"""

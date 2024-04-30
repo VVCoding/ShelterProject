@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width = "600" height = "600" class = "pie">
-    <text x ="240" y= "50" text-anchor = "middle">Pie Chart about the demographic of Individuals in Shelters</text>
+<svg width="100%" height="100%" viewBox="0 0 450 200" class="donut">
+    <circle class="donut-hole" cx="200" cy="100" r="60" fill="#fff"></circle>
+    <circle class="donut-ring" cx="200" cy="100" r="60" fill="transparent" stroke="#d2d3d4" stroke-width="10"></circle>
+  
+    <circle class="donut-segment" cx="200" cy="100" r="60" fill="transparent" stroke="#ce4b99" stroke-width="10" stroke-dasharray="{{120*3.14159265358979323846*totalAdultsInShelter/totalIndividualsInShelter}} {{120*3.14159265358979323846*totalChildrenInShelter/totalIndividualsInShelter}}" stroke-dashoffset="0"></circle>
+    
+    <text x="21" text-anchor="start" data-z-index="2" y="15" style="color: rgb(51, 51, 51); cursor: pointer; font-size: 12px; font-weight: bold; fill: rgb(51, 51, 51);">Adults: {{100* totalAdultsInShelter/totalIndividualsInShelter}}%</text>
+    <text x="21" text-anchor="start" data-z-index="2" y="30" style="color: rgb(51, 51, 51); cursor: pointer; font-size: 12px; font-weight: bold; fill: rgb(51, 51, 51);">Children: {{100*totalChildrenInShelter/totalIndividualsInShelter}}%</text>
+    <rect x="12" y = "8" width ="5" height = "5" rx = "3" ry = "3" fill = "pink"></rect>
+    <rect x="12" y = "24" width ="5" height = "5" rx = "5" ry = "3" fill = "grey"></rect>
 
-    <circle r="25%" cx="50%" cy="50%" style="stroke-dasharray: 75.3 100">
-    </circle>
-    <circle r="25%" cx="50%" cy="50%" style="stroke-dasharray: 199 100; stroke: green; stroke-dashoffset: 75.3; animation-delay: 0.25s">
-    </circle>
-    <circle r="25%" cx="50%" cy="50%" style="stroke-dasharray: 2.3 100; stroke: blue; stroke-dashoffset: -95.2; animation-delay: 0.5s">
-    </circle>
-    <circle r="25%" cx="50%" cy="50%" style="stroke-dasharray: 1.4 100; stroke: orange; stroke-dashoffset: -97.5; animation-delay: 0.75s">
-    </circle>
-    <circle r="25%" cx="50%" cy="50%" style="stroke-dasharray: 1.1 100; stroke: red; stroke-dashoffset: -98.9; animation-delay: 1s">
-    </circle>
+    <text x="147" y= "100" style="color: rgb(51, 51, 51); cursor: pointer; font-size: 6px; font-weight: bold; fill: rgb(51, 51, 51);" >Pie Chart about the demographic</text>
+    <text x="157" y= "107" style="color: rgb(51, 51, 51); cursor: pointer; font-size: 6px; font-weight: bold; fill: rgb(51, 51, 51);" >of Individuals in Shelters</text>
 </svg>
