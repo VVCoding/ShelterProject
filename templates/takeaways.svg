@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 0 650 650" width="500" height="500">
-    <text x ="240" y= "50" text-anchor = "middle">Takeaways </text>
+    <text x ="240" y= "50" text-anchor = "middle">Total Data </text>
     <text x ="240" y= "80" text-anchor = "middle">The Total Amount of Adults in Shelters: {{totalAdultsInShelter}}</text>
     <text x ="240" y= "110" text-anchor = "middle">The Total Amount of Children in Shelters: {{totalChildrenInShelter}}</text>
     <text x ="240" y= "140" text-anchor = "middle">The Total Amount of Individuals in Shelters: {{totalIndividualsInShelter}}</text>

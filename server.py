@@ -64,10 +64,30 @@ def date(currDate):
     dates = list(data.keys())[1:]
     if dateToDate(currDate) in dates:
         runbool = True
+        totalAdultsInShelter = int(data[dateToDate(currDate)][0])
+        totalChildrenInShelter = int(data[dateToDate(currDate)][1])
+        totalIndividualsInShelter = int(data[dateToDate(currDate)][2])
+        singleAdultMenInShelter = int(data[dateToDate(currDate)][3])
+        singleAdultWomenInShelter = int(data[dateToDate(currDate)][4])
+        totalSingleAdultsInShelter = int(data[dateToDate(currDate)][5])
+        familiesWithChildrenInShelter = int(data[dateToDate(currDate)][6])
+        adultsInFamiliesWithChildrenInShelter = int(data[dateToDate(currDate)][7])
+        childrenInFamiliesWithChildrenInShelter = int(data[dateToDate(currDate)][8])
+        totalIndividualsInFamiliesWithChildrenInShelter=int(data[dateToDate(currDate)][9])
     else:
         runbool = False
+        totalAdultsInShelter = 0
+        totalChildrenInShelter = 0
+        totalIndividualsInShelter = 0
+        singleAdultMenInShelter = 0
+        singleAdultWomenInShelter = 0
+        totalSingleAdultsInShelter = 0
+        familiesWithChildrenInShelter = 0
+        adultsInFamiliesWithChildrenInShelter = 0
+        childrenInFamiliesWithChildrenInShelter = 0
+        totalIndividualsInFamiliesWithChildrenInShelter= 0
 
-    return render_template("date.html", date=currDate, numDate = dateToDate(currDate),runbool = runbool, totalAdultsInShelter = int(data[dateToDate(currDate)][0]), totalChildrenInShelter = int(data[dateToDate(currDate)][1]), totalIndividualsInShelter = int(data[dateToDate(currDate)][2]), singleAdultMenInShelter = int(data[dateToDate(currDate)][3]), singleAdultWomenInShelter = int(data[dateToDate(currDate)][4]), totalSingleAdultsInShelter = int(data[dateToDate(currDate)][5]), familiesWithChildrenInShelter = int(data[dateToDate(currDate)][6]), adultsInFamiliesWithChildrenInShelter = int(data[dateToDate(currDate)][7]), childrenInFamiliesWithChildrenInShelter = int(data[dateToDate(currDate)][8]), totalIndividualsInFamiliesWithChildrenInShelter=int(data[dateToDate(currDate)][9]))
+    return render_template("date.html", date=currDate, numDate = dateToDate(currDate),runbool = runbool, totalAdultsInShelter = totalAdultsInShelter, totalChildrenInShelter = totalChildrenInShelter, totalIndividualsInShelter = totalIndividualsInShelter, singleAdultMenInShelter = singleAdultMenInShelter, singleAdultWomenInShelter = singleAdultWomenInShelter, totalSingleAdultsInShelter = totalSingleAdultsInShelter, familiesWithChildrenInShelter = familiesWithChildrenInShelter, adultsInFamiliesWithChildrenInShelter = adultsInFamiliesWithChildrenInShelter, childrenInFamiliesWithChildrenInShelter = childrenInFamiliesWithChildrenInShelter, totalIndividualsInFamiliesWithChildrenInShelter=totalIndividualsInFamiliesWithChildrenInShelter)
 
 def dateToDate(date):
     date = date.replace("%20","")
@@ -95,8 +115,8 @@ def dateToDate(date):
 app.run(debug=True, port =  5500)
 
 
-# Use MatPlot Lib for the rest of the graphs
-# Round Decimals
+# Dynamic TakeAways
+# About Page vocab
 # Add CSS for Navbar and anything else
 # Make Video
 # DONE
