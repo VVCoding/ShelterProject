@@ -115,8 +115,8 @@ def dateToDate(date):
 app.run(debug=True, port =  5500)
 
 
-# Dynamic TakeAways
-# About Page vocab
+# Dynamic Takeaways
+# Link data for matplotlib graphs using JSON
 # Add CSS for Navbar and anything else
 # Make Video
 # DONE
