@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 0 650 650" width="500" height="500">
     <text x ="240" y= "50" text-anchor = "middle">Total Data </text>
-    <text x ="240" y= "80" text-anchor = "middle">The Total Amount of Adults in Shelters: {{totalAdultsInShelter}}</text>
-    <text x ="240" y= "110" text-anchor = "middle">The Total Amount of Children in Shelters: {{totalChildrenInShelter}}</text>
-    <text x ="240" y= "140" text-anchor = "middle">The Total Amount of Individuals in Shelters: {{totalIndividualsInShelter}}</text>
-    <text x ="240" y= "170" text-anchor = "middle">The Total Amount of Single Adult Men in Shelters: {{singleAdultMenInShelter}}</text>
-    <text x ="240" y= "200" text-anchor = "middle">The Total Amount of Single Adult Women in Shelters: {{singleAdultWomenInShelter}}</text>
-    <text x ="240" y= "230" text-anchor = "middle">The Total Amount of Single Adults in Shelters: {{totalSingleAdultsInShelter}}</text>
-    <text x ="240" y= "260" text-anchor = "middle">The Total Amount of Families with Children in Shelter in Shelters: {{familiesWithChildrenInShelter}}</text>
-    <text x ="240" y= "290" text-anchor = "middle">The Total Amount of Adults in Families with Children in Shelters: {{adultsInFamiliesWithChildrenInShelter}}</text>
-    <text x ="240" y= "320" text-anchor = "middle">The Total Amount of Children in Families with Children in Shelters: {{childrenInFamiliesWithChildrenInShelter}}</text>
-    <text x ="240" y= "350" text-anchor = "middle">The Total Amount of Total Individuals in Families with Children in Shelter: {{totalIndividualsInFamiliesWithChildrenInShelter}}</text>
+    <text x ="240" y= "80" text-anchor = "middle">The Total Amount of Adults in Shelters: {{listData[0]}}</text>
+    <text x ="240" y= "110" text-anchor = "middle">The Total Amount of Children in Shelters: {{listData[1]}}</text>
+    <text x ="240" y= "140" text-anchor = "middle">The Total Amount of Individuals in Shelters: {{listData[2]}}</text>
+    <text x ="240" y= "170" text-anchor = "middle">The Total Amount of Single Adult Men in Shelters: {{listData[3]}}</text>
+    <text x ="240" y= "200" text-anchor = "middle">The Total Amount of Single Adult Women in Shelters: {{listData[4]}}</text>
+    <text x ="240" y= "230" text-anchor = "middle">The Total Amount of Single Adults in Shelters: {{listData[5]}}</text>
+    <text x ="240" y= "260" text-anchor = "middle">The Total Amount of Families with Children in Shelter in Shelters: {{listData[6]}}</text>
+    <text x ="240" y= "290" text-anchor = "middle">The Total Amount of Adults in Families with Children in Shelters: {{listData[7]}}</text>
+    <text x ="240" y= "320" text-anchor = "middle">The Total Amount of Children in Families with Children in Shelters: {{listData[8]}}</text>
+    <text x ="240" y= "350" text-anchor = "middle">The Total Amount of Total Individuals in Families with Children in Shelter: {{listData[9]}}</text>
 </svg>
 
 

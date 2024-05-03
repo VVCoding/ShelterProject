@@ -49,7 +49,8 @@ def home():
 def about(): 
     f = open("data/ShelterData.json", "r")
     data = json.load(f)
-    f.close()   
+    f.close() 
+      
     return render_template("about.html")
 
 @app.route("/date/<currDate>")
@@ -57,37 +58,43 @@ def date(currDate):
     f = open("data/ShelterData.json", "r")
     data = json.load(f)
     f.close()
-    
+
+    close = []
     
     runbool = False
+    listData=[]
     
     dates = list(data.keys())[1:]
     if dateToDate(currDate) in dates:
         runbool = True
-        totalAdultsInShelter = int(data[dateToDate(currDate)][0])
-        totalChildrenInShelter = int(data[dateToDate(currDate)][1])
-        totalIndividualsInShelter = int(data[dateToDate(currDate)][2])
-        singleAdultMenInShelter = int(data[dateToDate(currDate)][3])
-        singleAdultWomenInShelter = int(data[dateToDate(currDate)][4])
-        totalSingleAdultsInShelter = int(data[dateToDate(currDate)][5])
-        familiesWithChildrenInShelter = int(data[dateToDate(currDate)][6])
-        adultsInFamiliesWithChildrenInShelter = int(data[dateToDate(currDate)][7])
-        childrenInFamiliesWithChildrenInShelter = int(data[dateToDate(currDate)][8])
-        totalIndividualsInFamiliesWithChildrenInShelter=int(data[dateToDate(currDate)][9])
+        for elt in data[dateToDate(currDate)]:
+            listData.append(int(elt))
     else:
         runbool = False
-        totalAdultsInShelter = 0
-        totalChildrenInShelter = 0
-        totalIndividualsInShelter = 0
-        singleAdultMenInShelter = 0
-        singleAdultWomenInShelter = 0
-        totalSingleAdultsInShelter = 0
-        familiesWithChildrenInShelter = 0
-        adultsInFamiliesWithChildrenInShelter = 0
-        childrenInFamiliesWithChildrenInShelter = 0
-        totalIndividualsInFamiliesWithChildrenInShelter= 0
+    
+    yearAvg = {}
+    for i in range(1,13):
+        yearAvg[list(data.keys())[-i]] = data[list(data.keys())[-i]]
+        
+    year_list = ["2013", "2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"]
+    for year in year_list:
+        if year in dateToDate(currDate):
+            currYear = year 
+            
+    for index in range(0,10):
+        if int(listData[index])/int(yearAvg[currYear][index]) <= 0.96:
+            close.append("significantly lower than") 
+        elif int(listData[index])/int(yearAvg[currYear][index]) <= 0.98:
+            close.append("a little lower than")
+        elif int(listData[index])/int(yearAvg[currYear][index]) <= 1.000:
+            close.append("about the same as")
+        elif int(listData[index])/int(yearAvg[currYear][index]) <= 1.005:
+            close.append("a little higher than")
+        elif int(listData[index])/int(yearAvg[currYear][index]) >= 1.005:
+            close.append("significantly higher than")
 
-    return render_template("date.html", date=currDate, numDate = dateToDate(currDate),runbool = runbool, totalAdultsInShelter = totalAdultsInShelter, totalChildrenInShelter = totalChildrenInShelter, totalIndividualsInShelter = totalIndividualsInShelter, singleAdultMenInShelter = singleAdultMenInShelter, singleAdultWomenInShelter = singleAdultWomenInShelter, totalSingleAdultsInShelter = totalSingleAdultsInShelter, familiesWithChildrenInShelter = familiesWithChildrenInShelter, adultsInFamiliesWithChildrenInShelter = adultsInFamiliesWithChildrenInShelter, childrenInFamiliesWithChildrenInShelter = childrenInFamiliesWithChildrenInShelter, totalIndividualsInFamiliesWithChildrenInShelter=totalIndividualsInFamiliesWithChildrenInShelter)
+    return render_template("date.html", date=currDate, numDate = dateToDate(currDate),runbool = runbool, listData=listData, yearAvg = yearAvg, currYear = currYear, close = close, ratio = round(int(data[currYear][0])/int(yearAvg[currYear][0]),3), pratio = int(data[currYear][index])/int(yearAvg[currYear][index]), bratio = int(listData[3])/int(yearAvg[currYear][3]))
+
 
 def dateToDate(date):
     date = date.replace("%20","")
@@ -101,7 +108,7 @@ def dateToDate(date):
     days_list.reverse()
     count = 0
     for day in days_list:
-        if day in date and count ==0:
+        if day in date and count == 0:
             datestr = datestr + "/"+ day.replace(" ","")
             count+=1
             
@@ -115,21 +122,7 @@ def dateToDate(date):
 app.run(debug=True, port =  5500)
 
 
-# Dynamic Takeaways
-# Link data for matplotlib graphs using JSON
 # Add CSS for Navbar and anything else
 # Make Video
 # DONE
 
-"""Total Adults in Shelter",
-        "Total Children in Shelter",
-        "Total Individuals in Shelter",
-        "Single Adult Men in Shelter",
-        "Single Adult Women in Shelter",
-        "Total Single Adults in Shelter",
-        "Families with Children in Shelter",
-        "Adults in Families with Children in Shelter",
-        "Children in Families with Children in Shelter",
-        "Total Individuals in Families with Children in Shelter",
-        "Adult Families in Shelter",
-        "Individuals in Adult Families in Shelter"""

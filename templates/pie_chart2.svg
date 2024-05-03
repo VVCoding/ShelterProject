@@ -2,7 +2,7 @@
     <circle class="donut-hole" cx="200" cy="100" r="60" fill="#fff"></circle>
     <circle class="donut-ring" cx="200" cy="100" r="60" fill="transparent" stroke="#d2d3d4" stroke-width="10"></circle>
   
-    <circle class="donut-segment" cx="200" cy="100" r="60" fill="transparent" stroke="#ce4b99" stroke-width="10" stroke-dasharray="{{120*3.14159265358979323846*adultsInFamiliesWithChildrenInShelter/totalIndividualsInFamiliesWithChildrenInShelter}} {{120*3.14159265358979323846*childrenInFamiliesWithChildrenInShelter/totalIndividualsInFamiliesWithChildrenInShelter}}" stroke-dashoffset="0"></circle>
+    <circle class="donut-segment" cx="200" cy="100" r="60" fill="transparent" stroke="#ce4b99" stroke-width="10" stroke-dasharray="{{120*3.14159265358979323846*listData[7]/listData[9]}} {{120*3.14159265358979323846*listData[8]/listData[9]}}" stroke-dashoffset="0"></circle>
     
     <text x="21" text-anchor="start" data-z-index="2" y="15" style="color: rgb(51, 51, 51); cursor: pointer; font-size: 12px; font-weight: bold; fill: rgb(51, 51, 51);">Adults</text>
     <text x="21" text-anchor="start" data-z-index="2" y="30" style="color: rgb(51, 51, 51); cursor: pointer; font-size: 12px; font-weight: bold; fill: rgb(51, 51, 51);">Children</text>

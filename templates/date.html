@@ -37,8 +37,10 @@
       </div>
     </div>
 
+    {% include "takeaways.svg" %}
+
     {% else %}
-      <h1>Unfortunately, the available data only extends till 04/01/2024, therefore the data for {{numDate}}. Please go back to the Home Page and select a new date!</h1>
+      <h1>Unfortunately, the available data only ranges from 8/21/2013 till 04/01/2024, therefore there is no data for {{numDate}}. Please go back to the Home Page and select a new date!</h1>
     {% endif %}
     
   
