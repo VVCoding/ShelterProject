@@ -81,19 +81,20 @@ def date(currDate):
         if year in dateToDate(currDate):
             currYear = year 
             
-    for index in range(0,10):
-        if int(listData[index])/int(yearAvg[currYear][index]) <= 0.96:
-            close.append("significantly lower than") 
-        elif int(listData[index])/int(yearAvg[currYear][index]) <= 0.98:
-            close.append("a little lower than")
-        elif int(listData[index])/int(yearAvg[currYear][index]) <= 1.000:
-            close.append("about the same as")
-        elif int(listData[index])/int(yearAvg[currYear][index]) <= 1.005:
-            close.append("a little higher than")
-        elif int(listData[index])/int(yearAvg[currYear][index]) >= 1.005:
-            close.append("significantly higher than")
+    if runbool == True:  
+        for index in range(0,10):
+            if int(listData[index])/int(yearAvg[currYear][index]) <= 0.96:
+                close.append("significantly lower than") 
+            elif int(listData[index])/int(yearAvg[currYear][index]) <= 0.98:
+                close.append("a little lower than")
+            elif int(listData[index])/int(yearAvg[currYear][index]) <= 1.000:
+                close.append("about the same as")
+            elif int(listData[index])/int(yearAvg[currYear][index]) <= 1.005:
+                close.append("a little higher than")
+            elif int(listData[index])/int(yearAvg[currYear][index]) >= 1.005:
+                close.append("significantly higher than")
 
-    return render_template("date.html", date=currDate, numDate = dateToDate(currDate),runbool = runbool, listData=listData, yearAvg = yearAvg, currYear = currYear, close = close, ratio = round(int(data[currYear][0])/int(yearAvg[currYear][0]),3), pratio = int(data[currYear][index])/int(yearAvg[currYear][index]), bratio = int(listData[3])/int(yearAvg[currYear][3]))
+    return render_template("date.html", date=currDate, numDate = dateToDate(currDate),runbool = runbool, listData=listData, yearAvg = yearAvg, currYear = currYear, close = close)
 
 
 def dateToDate(date):
