@@ -74,7 +74,9 @@ def date(currDate):
     
     yearAvg = {}
     for i in range(1,13):
-        yearAvg[list(data.keys())[-i]] = data[list(data.keys())[-i]]
+        yearAvg[list(data.keys())[-i]] = []
+        for elt in data[list(data.keys())[-i]]:
+            yearAvg[list(data.keys())[-i]].append(int(elt))
         
     year_list = ["2013", "2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"]
     for year in year_list:
@@ -93,6 +95,8 @@ def date(currDate):
                 close.append("a little higher than")
             elif int(listData[index])/int(yearAvg[currYear][index]) >= 1.005:
                 close.append("significantly higher than")
+    
+
 
     return render_template("date.html", date=currDate, numDate = dateToDate(currDate),runbool = runbool, listData=listData, yearAvg = yearAvg, currYear = currYear, close = close)
 

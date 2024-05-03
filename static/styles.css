@@ -42,8 +42,8 @@ pre {
   }
 
   body{
-    background-color:white;
     font-family: "Noto Sans";
+    background-color: white;
   }
   
   .label {
@@ -53,9 +53,6 @@ pre {
     fill: #444444;
   }
 
-.navbar{
-  background-color: lightgreen;
-}
 
 .pie {
   width: 300px;
@@ -70,8 +67,5 @@ pre {
   animation: rotate 1.5s ease-in;
 }
 
-.navbar-custom {
-  background-color: lightgreen;
-}
 
 
