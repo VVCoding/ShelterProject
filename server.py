@@ -53,6 +53,22 @@ def about():
       
     return render_template("about.html")
 
+@app.route('/map')
+def map(): 
+    f = open("data/LocationData.json", "r")
+    data = json.load(f)
+    f.close() 
+    
+    locationDict = {}
+    
+    for borough in data.keys():
+        locationDict[borough] = int(data[borough])
+    
+    boroughs = list(data.keys())[:5]
+      
+    return render_template("map.html", locationDict = locationDict, boroughs= boroughs)
+
+
 @app.route("/date/<currDate>")
 def date(currDate):
     f = open("data/ShelterData.json", "r")
@@ -80,8 +96,10 @@ def date(currDate):
         
     year_list = ["2013", "2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"]
     for year in year_list:
-        if year in dateToDate(currDate):
+        if runbool == True and year in dateToDate(currDate):
             currYear = year 
+        else:
+            currYear = "2024"
             
     if runbool == True:  
         for index in range(0,10):
@@ -121,6 +139,8 @@ def dateToDate(date):
     for year in year_list:
         if year in date:
             datestr = datestr + "/"+year
+        else:
+            datestr = date
     
     return datestr
 

@@ -11,5 +11,5 @@
 
     <text x="162" y= "100" style="color: rgb(51, 51, 51); cursor: pointer; font-size: 8px; font-weight: bold; fill: rgb(51, 51, 51);" >Demographic of</text>
     <text x="152" y= "110" style="color: rgb(51, 51, 51); cursor: pointer; font-size: 8px; font-weight: bold; fill: rgb(51, 51, 51);" >Individuals in Families</text>
-    <text x="149" y= "120" style="color: rgb(51, 51, 51); cursor: pointer; font-size: 8px; font-weight: bold; fill: rgb(51, 51, 51);" >with Children in Shelters</text>
+    <text x="148" y= "120" style="color: rgb(51, 51, 51); cursor: pointer; font-size: 8px; font-weight: bold; fill: rgb(51, 51, 51);" >with Children in Shelters</text>
 </svg>

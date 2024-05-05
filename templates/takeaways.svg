@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-160 0 800 650" width="960" height="650">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-160 0 800 600" width="960" height="600">
     <text x ="240" y= "50" text-anchor = "middle">Takeaways</text>
     <text x ="240" y= "80" style="color: rgb(51, 51, 51); cursor: pointer; font-size: 12px; font-weight: bold; fill: rgb(51, 51, 51);" text-anchor = "middle">The Total Amount of Adults in Shelters: {{listData[0]}} which is {{close[0]}} the yearly average for {{currYear}} which is {{yearAvg[currYear][0]}}</text>
     <text x ="240" y= "110" style="color: rgb(51, 51, 51); cursor: pointer; font-size: 12px; font-weight: bold; fill: rgb(51, 51, 51);" text-anchor = "middle">The Total Amount of Children in Shelters: {{listData[1]}} which is {{close[1]}} the yearly average for {{currYear}} which is {{yearAvg[currYear][1]}}</text>

@@ -22,13 +22,18 @@
     <h1>Who's in a shelter?</h1> 
     <p>This is a graphical representation with the goal of highlighting trends in the demographic of people staying in shelters. Mainly encompassing children, adults, and whole families, this visualization will depict the total amount of each group in a shelter for a any given day from 08/21/2013 to 04/01/2024 along with their yearly averages.  </p>
     
+    <hr> 
+
     <h2> Data Cleansing Process</h2>
     <ul>
         <p>1. A Data Set was found that could be downloadable as a CSV</p>
         <p>2. Google Sheets was used to remove any unneccessary columns/rows and to add any other data</p>
         <p>3. The Google Sheet was downloaded as a CSV</p>
         <p>4. A <a href = "https://github.com/VVCoding/ShelterProject/blob/main/data/format_data.py">python program</a> was made to go through the data and turn it into a .json file </p>
+        <p>5. This process was similarly repeated for another data with a different <a href = "https://github.com/VVCoding/ShelterProject/blob/main/data/format_dataLocation.py">python program</a> to format it as a json and make it easier to use</p>
     </ul>
+
+    <hr> 
 
     <h3>Feedback and Takeaways </h3>
         <p>Compare Micro data to average statistics</p>
@@ -39,15 +44,30 @@
         <p>My protoypes below clearly show a neat way of organizing and displaying large amounts of data</p>
         <p>Despite reportedly increased efforts of helping house homeless people, the yearly average amount of people staying in shelters has consistently increased over the past decade, especially spiking in the past 2-3 years</p>
       
-    <h3>Important Vocab</h3>
+      <hr> 
+
+      <h3>Important Vocab</h3>
       <p>Shelter: All Shelters recognized by the Department of Homeless Services in NYC</p>
       <p>Adult Family: A family with no minor children</p>
       <p>Families with Children in Shelters: A family who has minors that are staying at a shelter</p>
+      <p>DHS: Department of Homeless Services</p>
 
-    <h3>Prototypes</h3>
+      <hr> 
+
+    <h2>The Story</h2>
+      <p> I want to graph and analyze homeless population data in NYC for the past decade, illustrating any and all trends</p>
+      <p> For example, the spike scene from 2021-2024 is likely caused due to the influx of migrants to the area, but also perhaps due to the increase of the unemployed with Covid</p>  
+      <p> I want to show the truth about the population of homeless people in NYC, going past the propoganda portrayed by news broadcasters</p>
+      <p> With the functional calendar, I hope to compare daily homeless data to the overall average of that year, hoping to find months in which the homeless population is especiialy high</p>
+      <p> I want to uncover the real causes behind the increases and decreases of Homelessness</p>
+      <p>For example, my map shows data for the end of April 2022, around when the migrant crisis started, and we can see in what places the concentration of homeless peopl increased</p>
+
+      <hr> 
+
+      <h3>Prototypes</h3>
     <img src = "{{ url_for("static", filename = "IMG_3984.jpg") }}" width = "50%" height = "10%" style = "transform: rotate(270deg); transform: translate(50,0)">
+    <hr> 
     <img src = "{{ url_for("static", filename = "IMG_3985.jpg") }}" width = "50%" height = "10%" style = "transform: rotate(270deg); transform: translate(50,0)">
-
 </body>
 {% include "footer.html" %}
 </html>
