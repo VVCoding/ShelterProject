@@ -139,15 +139,12 @@ def dateToDate(date):
     for year in year_list:
         if year in date:
             datestr = datestr + "/"+year
-        else:
-            datestr = date
+        
     
     return datestr
 
 app.run(debug=True, port =  5500)
 
 
-# Add CSS for Navbar and anything else
-# Make Video
-# DONE
+
 
